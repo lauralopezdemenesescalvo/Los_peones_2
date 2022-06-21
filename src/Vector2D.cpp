@@ -16,6 +16,11 @@ bool operator != (const Vector2D& v1, const Vector2D& v2) {
 		return true;
 }
 
+Vector2D::Vector2D()
+{
+
+}
+
 Vector2D::Vector2D(int f, int c)
 {
 	fila = f;
