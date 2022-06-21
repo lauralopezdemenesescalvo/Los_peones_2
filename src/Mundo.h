@@ -14,6 +14,8 @@ public:
 	float y_ojo;
 	float z_ojo;
 
+	Vector2D v_click={0,0};
+	Vector2D click(int,int,int,int);
 	Tablero tablero;
 	
 };

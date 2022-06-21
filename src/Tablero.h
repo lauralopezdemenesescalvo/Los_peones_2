@@ -18,8 +18,10 @@ public:
 	void inicializa();
 
 	Pieza* tablero[8][8];
-	
+	void gestion_click(Vector2D);
 	void setTurno();
 	bool fin_mate();
+
+	Vector2D pos_actual, pos_siguiente;
 
 };

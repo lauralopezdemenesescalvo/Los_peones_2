@@ -5,15 +5,15 @@ Tablero::Tablero()
 
 	turno = 1; // empiezan las blancas
 
+	pos_actual.SetFila(30);
+	pos_actual.SetColumna(30);
+	pos_siguiente.SetFila(0);
+	pos_siguiente.SetColumna(0);
 
 	for (int i = 0; i < 8; i++)
-		for (int j = 0; j < 8; j++)
-		{
+		for (int j = 0; j < 8; j++){
 			tablero[i][j] = nullptr;
-			
 		}
-
-
 
 	for (int i = 0; i < 8; i++)
 		for (int j = 0; j < 8; j++)
@@ -107,6 +107,75 @@ void Tablero::inicializa()
 
 }
 
+
+void Tablero::gestion_click(Vector2D c)
+{
+	int estado;
+	bool terminado=0;
+
+	if (tablero[c.getFila()][c.getColumna()] == nullptr && pos_actual.getFila()==30 && pos_actual.getColumna()==30)  estado = 0;
+	
+	if (tablero[c.getFila()][c.getColumna()] != nullptr && tablero[c.getFila()][c.getColumna()]->getColor() != turno && pos_actual.getFila() == 30 && pos_actual.getColumna() == 30) estado = 1;
+
+	if (tablero[c.getFila()][c.getColumna()] != nullptr && tablero[c.getFila()][c.getColumna()]->getColor() == turno && pos_actual.getFila() == 30 && pos_actual.getColumna() == 30) estado = 2;
+	
+	if (tablero[c.getFila()][c.getColumna()] != nullptr && tablero[c.getFila()][c.getColumna()]->getColor() == turno && pos_actual.getFila() != 30 && pos_actual.getColumna() != 30) estado = 3;
+	
+	if (tablero[c.getFila()][c.getColumna()] != nullptr && tablero[c.getFila()][c.getColumna()]->getColor() != turno && pos_actual.getFila() != 30 && pos_actual.getColumna() != 30) estado = 4;
+	
+	if (tablero[c.getFila()][c.getColumna()] == nullptr  && pos_actual.getFila() != 30 && pos_actual.getColumna() != 30) estado = 5;
+	printf("VECTOR pos_actual: %d %d\n",pos_actual.getFila(),pos_actual.getColumna());
+	
+	int x;
+	if (tablero[c.getFila()][c.getColumna()] == nullptr)
+		 x = 0;
+	else
+	x = 1;
+		printf("TABLERO: %d\n",x);
+	switch (estado) {
+
+		// PRIMER CLICK
+	case 0: // se ha seleccionado una casilla vacia-> no guarda
+		printf("CASE 0\n");
+		break;
+	case 1:  // se ha seleccionado una pieza que no toca ( toca blanca y haces click en negro)-> no guarda
+		printf("CASE 1\n");
+		break; 
+	case 2: // Se ha seleccionado una pieza -> guarda
+		printf("CASE 2\n");
+		pos_actual = c;
+		break;
+		// SEGUNDO CLICK
+	case 3: // Existe una poscion actual guardada y se ha seleccionado una pieza de su mismo color-> no guarda
+		printf("CASE 3\n");
+		pos_actual.SetFila(30);
+		pos_actual.SetColumna(30);
+		break;
+	case 4: // // Existe una poscion actual guardada y se ha seleccionado una pieza del otro color->COMER
+		printf("CASE 4\n");
+		pos_siguiente = c;
+		terminado = 1;
+		break;
+
+	case 5: // casilla vacia
+		printf("CASE 5\n");
+		pos_siguiente = c;
+		printf("VECTOR pos_siguiente: %d %d\n", pos_siguiente.getFila(), pos_siguiente.getColumna());
+		terminado = 1;
+		break;
+	}
+
+	// Cuando se termina de almacenar los dos clicks y se han utilizado, ponemos posicion actual y siguiente a 30
+	if (terminado == 1)
+	{
+		pos_actual.SetFila(30);
+		pos_actual.SetColumna(30);
+
+		if (turno == 1) turno = 0;
+		else turno = 1;
+	}
+	
+}
 
 void Tablero::setTurno()
 {
