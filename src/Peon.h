@@ -8,6 +8,7 @@ class Peon : public Pieza {
 	Sprite peon_n{ "imagenes/peonn.png" };
 public:
 	virtual bool mov_posible(Vector2D, Vector2D);
-	Peon(bool c) :Pieza(c) { PEON; }
+	Peon(bool c) :Pieza(c) { PEON; primer_movimiento = 1; }
 	void dibuja(Vector2D);
+	bool primer_movimiento;
 };
