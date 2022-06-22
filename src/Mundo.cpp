@@ -47,13 +47,14 @@ Vector2D Mundo::click(int button, int state, int x, int y)
 		res.SetFila(int(v_columna));
 		res.SetColumna(int(v_fila));
 
+
 		return res;
 	}
 
 
 void Mundo::mueve()
 {
-
+	
 }
 
 void Mundo::inicializa()

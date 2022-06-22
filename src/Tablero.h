@@ -19,9 +19,8 @@ public:
 
 	Pieza* tablero[8][8];
 	void gestion_click(Vector2D);
-	void setTurno();
 	bool fin_mate();
-
+	void actualiza_tablero();
 	Vector2D pos_actual, pos_siguiente;
-
+	void movimiento();
 };

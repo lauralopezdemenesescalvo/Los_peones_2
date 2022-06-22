@@ -15,7 +15,6 @@ public:
 	
 	
 	bool getColor();
-	tipo getTipo();
 	virtual bool mov_posible(Vector2D, Vector2D);
 	virtual void dibuja(Vector2D);
 	

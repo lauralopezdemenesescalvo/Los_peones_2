@@ -17,6 +17,8 @@ bool Pieza::getColor()
 	return color;
 }
 
+
+
 bool Pieza::mov_posible(Vector2D, Vector2D)
 {
 	return false;

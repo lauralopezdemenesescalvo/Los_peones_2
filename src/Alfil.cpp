@@ -1,8 +1,11 @@
 #include "Alfil.h"
 
 
-bool Alfil::mov_posible(Vector2D, Vector2D)
+bool Alfil::mov_posible(Vector2D pos1, Vector2D pos2)
 {
+	if (abs(pos2.getFila() - pos1.getFila()) == abs(pos2.getColumna() - pos1.getColumna()))
+	return true;
+	else
 	return false;
 }
 
