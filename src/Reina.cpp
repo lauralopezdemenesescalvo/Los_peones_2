@@ -18,3 +18,8 @@ void Reina::dibuja(Vector2D p1)
 	sprite_n = reina_n;
 	Pieza::dibuja(p1);
 }
+
+int Reina::getPieza()
+{
+	return 4;
+}

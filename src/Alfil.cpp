@@ -17,3 +17,8 @@ void Alfil::dibuja(Vector2D p1) {
 
 	Pieza::dibuja(p1);
 }
+
+int Alfil::getPieza()
+{
+	return 1;
+}

@@ -11,5 +11,6 @@ public:
 	virtual bool mov_posible(Vector2D, Vector2D,bool);
 	Alfil(bool c) :Pieza(c) { ALFIL; }
 	void dibuja(Vector2D);
+	int getPieza();
 		
 };

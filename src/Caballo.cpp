@@ -16,3 +16,8 @@ void Caballo::dibuja(Vector2D p1)
 
 	Pieza::dibuja(p1);
 }
+
+int Caballo::getPieza()
+{
+	return 2;
+}

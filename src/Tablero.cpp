@@ -99,13 +99,23 @@ void Tablero::dibuja(Pieza* pieza, bool iluminacion)
 				tablero[i][j]->dibuja({i,j});
 		}
 	}
+	//ILUMINAR CASILLA SELECCIONADA
+	if (pos_actual.getFila() != 30) {
+		glTranslatef(pos_actual.getFila(), pos_actual.getColumna(), -0.001);
+		glBegin(GL_POLYGON);
+		glColor3ub(255, 0, 0);
+
+		glVertex3d(0.0f, 0.0f, 0.0001f);
+		glVertex3d(1.0f, 0.0f, 0.0001f);
+		glVertex3d(1.0f, 1.0f, 0.0001f);
+		glVertex3d(0.0f, 1.0f, 0.0001f);
+
+		glEnd();
+		glTranslatef(-pos_actual.getFila(), -pos_actual.getColumna(), 0.001);
+	}
+
 }
 
-
-void Tablero::inicializa()
-{
-
-}
 
 
 void Tablero::gestion_click(Vector2D c)
@@ -167,14 +177,16 @@ bool Tablero::fin_mate()
 	int numreyes=0;
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
-			if (tablero[i][j] != nullptr)
-				if (tablero[i][j]->getTipo() == 5)
+			if (tablero[i][j] != nullptr) {
+				if (tablero[i][j]->getPieza() == 5) {
 					numreyes++;
+				}
+			}
 		}
 	}
-	if (numreyes != 2)
-		printf("FIN!!!!!\n");
-	return true;
+	if (numreyes != 2) {
+		return true;
+	}
 }
 
 void Tablero::actualiza_tablero()
@@ -184,6 +196,7 @@ void Tablero::actualiza_tablero()
 	tablero[pos_siguiente.getFila()][pos_siguiente.getColumna()] = tablero[pos_actual.getFila()][pos_actual.getColumna()];
 	tablero[pos_actual.getFila()][pos_actual.getColumna()] = NULL;
 	fin = fin_mate();
+	fin = pieza_trayectoria();
 }
 
 void Tablero::movimiento()

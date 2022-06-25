@@ -1,7 +1,8 @@
 #include "Mundo.h"
 #include "freeglut.h"
+#include "Coordinador.h"
 
-Mundo mundo;
+Coordinador coordinador;
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -34,7 +35,7 @@ int main(int argc,char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 	glutMouseFunc(ControlMouse);
 
-	mundo.inicializa();
+	coordinador.inicializa();
 		
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();	
@@ -51,7 +52,7 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);	
 	glLoadIdentity();
 	
-	mundo.dibuja();
+	coordinador.dibuja();
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
@@ -59,7 +60,7 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	mundo.tecla(key);
+	coordinador.tecla(key);
 
 	glutPostRedisplay();
 }
@@ -67,7 +68,7 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 void OnTimer(int value)
 {
 //poner aqui el código de animacion
-	mundo.mueve();
+	coordinador.mueve();
 
 	//no borrar estas lineas
 	glutTimerFunc(25,OnTimer,0);
@@ -79,8 +80,8 @@ void ControlMouse(int boton, int estado, int x, int y) {
 	
 	if (boton == GLUT_RIGHT_BUTTON && estado == GLUT_UP) {
 		
-		mundo.v_click=mundo.click(boton, estado, x, y);
-		mundo.tablero.gestion_click(mundo.v_click);
+		coordinador.mundo1.v_click=coordinador.mundo1.click(boton, estado, x, y);
+		coordinador.mundo1.tablero.gestion_click(coordinador.mundo1.v_click);
 	}
 
 

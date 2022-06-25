@@ -34,23 +34,14 @@ void Pieza::dibuja(Vector2D p1) {
 		}
 }
 
-int Pieza::getTipo()
-{ 
-	if (ALFIL)
-		return 1;
-	if (CABALLO)
-		return 2;
-	if (PEON)
-		return 3;
-	if (REINA)
-		return 4;
-	if (REY)
-		return 5;
-	if (TORRE)
-		return 6;
-	else
-		return 0;
+int Pieza::getPieza()
+{
+	return 0;
 }
+
+
+
+
 
 
 

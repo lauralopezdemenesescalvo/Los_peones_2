@@ -14,3 +14,8 @@ void Torre::dibuja(Vector2D p1)
 	sprite_n = torre_n;
 	Pieza::dibuja(p1);
 }
+
+int Torre::getpieza()
+{
+	return 6;
+}
