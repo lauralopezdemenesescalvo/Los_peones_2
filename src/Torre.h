@@ -7,7 +7,7 @@ class Torre : public Pieza {
 	Sprite torre_b{ "imagenes/torreb.png" };
 	Sprite torre_n{ "imagenes/torren.png" };
 public:
-	virtual bool mov_posible(Vector2D, Vector2D);
+	virtual bool mov_posible(Vector2D, Vector2D,bool);
 	Torre(bool c) :Pieza(c) { TORRE; }
 	void dibuja(Vector2D);
 };
