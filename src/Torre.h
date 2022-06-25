@@ -10,4 +10,5 @@ public:
 	virtual bool mov_posible(Vector2D, Vector2D,bool);
 	Torre(bool c) :Pieza(c) { TORRE; }
 	void dibuja(Vector2D);
+	int getpieza();
 };

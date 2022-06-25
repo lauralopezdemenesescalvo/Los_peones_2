@@ -10,4 +10,5 @@ public:
 	virtual bool mov_posible(Vector2D, Vector2D,bool);
 	Caballo(bool c) :Pieza(c) { CABALLO; }
 	void dibuja(Vector2D);
+	int getPieza();
 };

@@ -43,3 +43,8 @@ void Peon::dibuja(Vector2D p1)
 	sprite_n = peon_n;
 	Pieza::dibuja(p1);
 }
+
+int Peon::getPieza()
+{
+	return 3;
+}

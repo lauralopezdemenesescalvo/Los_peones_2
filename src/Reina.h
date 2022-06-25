@@ -11,4 +11,5 @@ public:
 	Reina(bool c) :Pieza(c) { REINA; }
 	
 	void dibuja(Vector2D);
+	int getPieza();
 };

@@ -15,12 +15,10 @@ public:
 	virtual~Tablero();
 	bool turno;
 	void dibuja(Pieza* pieza, bool iluminacion);
-	void inicializa();
-
 	Pieza* tablero[8][8];
 	void gestion_click(Vector2D);
 	bool fin_mate();
 	void actualiza_tablero();
-	Vector2D pos_actual, pos_siguiente;
+	Vector2D pos_actual, pos_siguiente,pos_aux;
 	void movimiento();
 };
