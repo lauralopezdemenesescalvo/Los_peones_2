@@ -1,12 +1,13 @@
 #include "Alfil.h"
 
 
-bool Alfil::mov_posible(Vector2D pos1, Vector2D pos2)
+
+bool Alfil::mov_posible(Vector2D pos1, Vector2D pos2, bool ocupado)
 {
 	if (abs(pos2.getFila() - pos1.getFila()) == abs(pos2.getColumna() - pos1.getColumna()))
-	return true;
+			return true;
 	else
-	return false;
+		return false;
 }
 
 void Alfil::dibuja(Vector2D p1) {

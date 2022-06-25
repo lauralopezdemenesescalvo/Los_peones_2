@@ -164,23 +164,38 @@ void Tablero::gestion_click(Vector2D c)
 
 bool Tablero::fin_mate()
 {
-	return false;
+	int numreyes=0;
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (tablero[i][j] != nullptr)
+				if (tablero[i][j]->getTipo() == 5)
+					numreyes++;
+		}
+	}
+	if (numreyes != 2)
+		printf("FIN!!!!!\n");
+	return true;
 }
 
 void Tablero::actualiza_tablero()
 {
+	bool fin=0;
 
 	tablero[pos_siguiente.getFila()][pos_siguiente.getColumna()] = tablero[pos_actual.getFila()][pos_actual.getColumna()];
 	tablero[pos_actual.getFila()][pos_actual.getColumna()] = NULL;
+	fin = fin_mate();
 }
 
 void Tablero::movimiento()
 {
 	bool res=false;
-	
+	bool ocupado=0;
+	if (tablero[pos_siguiente.getFila()][pos_siguiente.getColumna()] == nullptr)
+		ocupado = false;
+	else ocupado = true;
 
 	if (pos_actual.getFila() != 30 && pos_actual.getColumna() != 30 && pos_siguiente.getFila() != 20 && pos_siguiente.getColumna() != 20)
-		res= tablero[pos_actual.getFila()][pos_actual.getColumna()]->mov_posible(pos_actual, pos_siguiente);
+		res= tablero[pos_actual.getFila()][pos_actual.getColumna()]->mov_posible(pos_actual, pos_siguiente,ocupado);
 
 	if (res == 1) {
 		actualiza_tablero();		

@@ -12,11 +12,11 @@ public:
 	Pieza(bool);
 	Sprite sprite_b{ "imagenes/alfilb.png" };
 	Sprite sprite_n{ "imagenes/alfiln.png" };
-	
-	
+
 	bool getColor();
-	virtual bool mov_posible(Vector2D, Vector2D);
+	virtual bool mov_posible(Vector2D, Vector2D,bool);
 	virtual void dibuja(Vector2D);
+	int getTipo();
 	
 };
 

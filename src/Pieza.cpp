@@ -1,15 +1,10 @@
 #include "Pieza.h"
 
-
-
-
 Pieza::Pieza(bool c)
 {
 	
 	color = c;
 }
-
-
 
 bool Pieza::getColor()
 {
@@ -17,12 +12,13 @@ bool Pieza::getColor()
 	return color;
 }
 
-
-
-bool Pieza::mov_posible(Vector2D, Vector2D)
+bool Pieza::mov_posible(Vector2D, Vector2D, bool)
 {
 	return false;
 }
+
+
+
 
 void Pieza::dibuja(Vector2D p1) {
 
@@ -37,4 +33,24 @@ void Pieza::dibuja(Vector2D p1) {
 		sprite_n.draw();
 		}
 }
+
+int Pieza::getTipo()
+{ 
+	if (ALFIL)
+		return 1;
+	if (CABALLO)
+		return 2;
+	if (PEON)
+		return 3;
+	if (REINA)
+		return 4;
+	if (REY)
+		return 5;
+	if (TORRE)
+		return 6;
+	else
+		return 0;
+}
+
+
 

@@ -1,6 +1,7 @@
 #include "Caballo.h"
 
-bool Caballo::mov_posible(Vector2D pos1, Vector2D pos2)
+
+bool Caballo::mov_posible(Vector2D pos1, Vector2D pos2, bool ocupado)
 {
 	if ((abs(pos2.getColumna() - pos1.getColumna()) == 2 && abs(pos2.getFila() - pos1.getFila()) == 1) || (abs(pos2.getColumna() - pos1.getColumna()) == 1 && abs(pos2.getFila() - pos1.getFila()) == 2))
 		return true;
