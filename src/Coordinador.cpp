@@ -92,6 +92,7 @@ void Coordinador::dibuja()
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/nuestrafuente.ttf", 16);
 		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
+		ETSIDI::play("sonidos/perder.wav");
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 5);
 	}
 	else if (estado == FIN)
@@ -99,6 +100,7 @@ void Coordinador::dibuja()
 		mundo1.dibuja();
 		ETSIDI::setFont("fuentes/nuestrafuente.ttf", 16);
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!", -5, 10);
+		ETSIDI::play("sonidos/victoria.wav");
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
 	}
 }

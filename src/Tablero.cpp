@@ -196,7 +196,7 @@ void Tablero::actualiza_tablero()
 	tablero[pos_siguiente.getFila()][pos_siguiente.getColumna()] = tablero[pos_actual.getFila()][pos_actual.getColumna()];
 	tablero[pos_actual.getFila()][pos_actual.getColumna()] = NULL;
 	fin = fin_mate();
-	fin = pieza_trayectoria();
+	
 }
 
 void Tablero::movimiento()

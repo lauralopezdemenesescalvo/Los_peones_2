@@ -59,6 +59,9 @@ void Mundo::mueve()
 
 void Mundo::inicializa()
 {
+
+ETSIDI::play("sonidos/musica.wav");
+
 	x_ojo=4;
 	y_ojo=4;
 	z_ojo=15;
