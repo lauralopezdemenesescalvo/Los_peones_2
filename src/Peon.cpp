@@ -32,6 +32,10 @@ bool Peon::mov_posible(Vector2D pos1, Vector2D pos2, bool ocupado)
 			return true;
 		else if (((pos2.getFila() - pos1.getFila()) == 1 && (pos2.getColumna() - pos1.getColumna()) == 1))
 			return true;
+		else if (((pos2.getFila() - pos1.getFila()) == -1 && (pos2.getColumna() - pos1.getColumna()) == -1))
+			return true;
+		else if (((pos2.getFila() - pos1.getFila()) == 1 && (pos2.getColumna() - pos1.getColumna()) == -1))
+			return true;
 		else
 			return false;
 	}
