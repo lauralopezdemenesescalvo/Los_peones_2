@@ -105,10 +105,10 @@ void Tablero::dibuja(Pieza* pieza, bool iluminacion)
 		glBegin(GL_POLYGON);
 		glColor3ub(255, 0, 0);
 
-		glVertex3d(0.0f, 0.0f, 0.0001f);
-		glVertex3d(1.0f, 0.0f, 0.0001f);
-		glVertex3d(1.0f, 1.0f, 0.0001f);
-		glVertex3d(0.0f, 1.0f, 0.0001f);
+		glVertex3d(0.0f, 0.0f, 0.001f);
+		glVertex3d(1.0f, 0.0f, 0.001f);
+		glVertex3d(1.0f, 1.0f, 0.001f);
+		glVertex3d(0.0f, 1.0f, 0.001f);
 
 		glEnd();
 		glTranslatef(-pos_actual.getFila(), -pos_actual.getColumna(), 0.001);
